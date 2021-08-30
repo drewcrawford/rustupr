@@ -2,7 +2,7 @@ use thiserror::Error;
 #[derive(Error,Debug)]
 pub enum Error {
     #[error("Rustup failed")]
-    RustUp(#[from] std::io::Error)
+    RustUp(#[from] command_rs::Error)
 }
 mod install_rustup;
 
