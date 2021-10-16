@@ -8,6 +8,7 @@ edition = "2018"
 [dependencies]
 command-rs = {path = "../command-rs"}
 thiserror = "1.0.28"
+kiruna = {git = "https://github.com/drewcrawford/kiruna"}
 
 [dev-dependencies]
-kiruna = {path = "../kiruna", features=["test"]}
+kiruna = {git = "https://github.com/drewcrawford/kiruna", features=["test"]}
