@@ -1,7 +1,6 @@
 use command_rs::{Command, ExitStatus};
 use crate::Error;
 use pcore::release_pool::ReleasePool;
-use std::path::PathBuf;
 
 async fn update_rustup(priority: kiruna::Priority) -> Result<(),Error> {
     Command::new("rustup")
@@ -11,12 +10,7 @@ async fn update_rustup(priority: kiruna::Priority) -> Result<(),Error> {
 }
 
 async fn is_rustup_installed(priority: kiruna::Priority) -> bool {
-    #[cfg(target_os = "macos")] {
-        Command::new("rustup").status(priority).await.map_or_else(|_| false, |_| true)
-    }
-    #[cfg(target_os = "windows")] {
-        false //todo!
-    }
+    Command::new("rustup").status(priority).await.map_or_else(|_| false, |_| true)
 }
 async fn install_rustup(priority: kiruna::Priority) -> Result<(),Error> {
     #[cfg(target_os = "macos")] {
