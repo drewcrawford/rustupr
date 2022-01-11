@@ -1,4 +1,4 @@
-/*! Rust library that installs Rust.
+Rust library that installs Rust.
 
 The phone call is coming from inside the building!
 
@@ -7,7 +7,7 @@ The phone call is coming from inside the building!
 Installs rust on macOS 12+.  Windows support is planned.
 
 # Examples
-```
+```rust
 async fn example() -> Result<(), rustupr::Error>{
     rustupr::ensure_rustup(kiruna::Priority::Testing).await?;
     Ok(())
@@ -24,14 +24,3 @@ You might be interested my expanded universe of sysadmin libraries:
 * [github-actions-runner](https://github.com/drewcrawford/github-actions-runner), which installs GitHub's action runner
 * [mac-install](https://github.com/drewcrawford/mac-install) which installs mac packages
 * [dmg](https://github.com/drewcrawford/dmg) to mount DMG images
-
-*/
-use thiserror::Error;
-#[derive(Error,Debug)]
-pub enum Error {
-    #[error("Rustup failed")]
-    RustUp(#[from] command_rs::Error)
-}
-mod install_rustup;
-
-pub use install_rustup::ensure_rustup;
