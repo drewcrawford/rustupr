@@ -10,5 +10,9 @@ command-rs = {path = "../command-rs"}
 thiserror = "1.0.28"
 kiruna = {git = "https://github.com/drewcrawford/kiruna"}
 
+[target.'cfg(target_os="windows")'.dependencies]
+#on windows, we need to download the installer
+requestr = {path = "../requestr" }
+pcore = {path = "../pcore"}
 [dev-dependencies]
 kiruna = {git = "https://github.com/drewcrawford/kiruna", features=["test"]}
