@@ -6,13 +6,14 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-command-rs = {path = "../command-rs"}
+command-rs = {git = "https://github.com/drewcrawford/command-rs"}
 thiserror = "1.0.28"
 kiruna = {git = "https://github.com/drewcrawford/kiruna"}
-
 [target.'cfg(target_os="windows")'.dependencies]
 #on windows, we need to download the installer
-requestr = {path = "../requestr" }
-pcore = {path = "../pcore"}
+requestr = {git = "https://github.com/drewcrawford/requestr" }
+pcore = {git = "https://github.com/drewcrawford/pcore"}
+
+
 [dev-dependencies]
 kiruna = {git = "https://github.com/drewcrawford/kiruna", features=["test"]}

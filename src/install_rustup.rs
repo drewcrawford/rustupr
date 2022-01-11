@@ -1,6 +1,5 @@
 use command_rs::{Command, ExitStatus};
 use crate::Error;
-use pcore::release_pool::ReleasePool;
 
 async fn update_rustup(priority: kiruna::Priority) -> Result<(),Error> {
     Command::new("rustup")
@@ -22,6 +21,7 @@ async fn install_rustup(priority: kiruna::Priority) -> Result<(),Error> {
     }
    #[cfg(target_os="windows")] {
        //we're on windows, so eh
+       use pcore::release_pool::ReleasePool;
        let pool = unsafe{ReleasePool::assuming_pool()};
        let download_request = requestr::Request::new(pcore::pstr!("https://win.rustup.rs/x86_64"), pool)?;
        let download = download_request.download(pool).await?;

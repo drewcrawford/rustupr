@@ -1,7 +1,13 @@
 on: [push]
 jobs:
-  ci:
+  ci-mac:
     runs-on: macos-11
+    steps:
+      - uses: actions/checkout@v2
+      - run: cargo test
+      - run: cargo doc
+  ci-win:
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
       - run: cargo test

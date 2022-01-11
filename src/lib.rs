@@ -4,7 +4,7 @@ The phone call is coming from inside the building!
 
 # Status
 
-Installs rust on macOS 12+.  Windows support is planned.
+Installs rust on macOS 12+ and Windows 10.
 
 # Examples
 ```
